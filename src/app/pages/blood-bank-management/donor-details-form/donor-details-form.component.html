@@ -1,0 +1,106 @@
+<header>
+    <h1 class="center">HOSPITALS MANAGEMENT SYSTEM</h1>
+</header>
+
+<section>
+    <nav>
+        <app-layout></app-layout>
+    </nav>
+
+    <article>
+        <div class="card card-layout">
+            <div class="card-body card-bg">
+                <h2 class="card-titlev center">Donor Details Form</h2>
+                <form [formGroup]="donorDetailsForm" autocomplete="off">
+                    <div class="container fluid">
+                        <div class="row">
+                            <div class="col-md-2">
+                                Donor ID
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="donorId" class="form-control"
+                                        aria-describedby="basic-addon1" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                Name
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="name" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                DOB
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="date" formControlName="age" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                Blood Group
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="bloodGroup" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                Donation Date
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="date" formControlName="donationDate" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                Gender
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="gender" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                Phone
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="phone" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                Address
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <textarea formControlName="address" class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col center">
+                                <button type="button" [disabled]="!donorDetailsForm.valid" style="width: 15rem;"
+                                    class="btn btn-success" (click)="postDonorDetails()">Add Donor Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </article>
+</section>

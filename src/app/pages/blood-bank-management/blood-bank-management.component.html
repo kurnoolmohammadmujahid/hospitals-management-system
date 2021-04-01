@@ -1,0 +1,74 @@
+<header>
+    <h1 class="center">HOSPITALS MANAGEMENT SYSTEM</h1>
+</header>
+
+<section>
+    <nav>
+        <app-layout></app-layout>
+    </nav>
+    <article>
+        <div class="card card-layout">
+            <div class="card-body card-bg">
+                <h2 class="card-titlev center">Blood Donation Database</h2>
+                <p-table [value]="products" dataKey="donorId">
+                    <ng-template pTemplate="header">
+                        <tr>
+                            <th style="width: 3rem"></th>
+                            <th>Donor ID
+                            </th>
+                            <th>Name
+                            </th>
+                            <th>Blood Group
+                            </th>
+                            <th>Donation Date
+                            </th>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="body" let-product let-expanded="expanded">
+                        <tr>
+                            <td>
+                                <button type="button" pButton pRipple [pRowToggler]="product"
+                                    class="p-button-text p-button-rounded p-button-plain"
+                                    [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+                            </td>
+                            <td>{{product.donorId}}</td>
+                            <td>{{product.name}}</td>
+                            <td>{{product.bloodGroup}}</td>
+                            <td>{{product.donationDate}}</td>
+                        </tr>
+                    </ng-template>
+                    <ng-template pTemplate="rowexpansion" let-product>
+                        <tr class="expand-font-size">
+                            <th style="width: 3rem"></th>
+                            <td>Donor ID: </td>
+                            <td class="bold">{{product.donorId}}</td>
+                            <td>Name: </td>
+                            <td class="bold">{{product.name}}</td>
+                        </tr>
+                        <tr class="expand-font-size">
+                            <th style="width: 3rem"></th>
+                            <td>Blood Group: </td>
+                            <td class="bold">{{product.bloodGroup}}</td>
+                            <td>Gender: </td>
+                            <td class="bold">{{product.gender}}</td>
+                        </tr>
+                        <tr class="expand-font-size">
+                            <th style="width: 3rem"></th>
+                            <td>DOB:</td>
+                            <td class="bold">{{product.age}}</td>
+                            <td>Address:</td>
+                            <td class="bold">{{product.address}}</td>
+                        </tr>
+                        <tr class="expand-font-size">
+                            <th style="width: 3rem"></th>
+                            <td>Donation Date:</td>
+                            <td class="bold">{{product.donationDate}}</td>
+                            <td>Phone:</td>
+                            <td class="bold">{{product.phone}}</td>
+                        </tr>
+                    </ng-template>
+                </p-table>
+            </div>
+        </div>
+    </article>
+</section>
