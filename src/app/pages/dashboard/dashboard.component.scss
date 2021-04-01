@@ -1,0 +1,25 @@
+.flex-container {
+    display: flex;
+    background: #a6d5fa94;
+    border: 2px solid;
+    margin: 30px;
+}
+
+.border-title {
+    position: absolute;
+    margin-left: 2%;
+    margin-top: -2%;
+    background: black;
+    color: white;
+    text-transform:uppercase;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.flex-container > div {
+    margin: 8px;
+    padding: 10px;
+    flex-basis: 25%;
+    margin-top: 20px;
+    // margin-left: 20px;
+}
