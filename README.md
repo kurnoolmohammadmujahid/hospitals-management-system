@@ -32,4 +32,4 @@ Run `json-server --watch --port 3007 db.json`
 
 ## Apache Tomcat Server help
 
-[Refer](https://medium.com/@nithin.biliya/deploying-angular-application-on-tomcat-server-fixing-deep-linking-issue-577565fe303d)
+Deploycode in Tomcat 10 [Refer](https://medium.com/@nithin.biliya/deploying-angular-application-on-tomcat-server-fixing-deep-linking-issue-577565fe303d)
