@@ -1,0 +1,260 @@
+<header>
+    <h1 class="center">HOSPITALS MANAGEMENT SYSTEM</h1>
+</header>
+
+<section>
+    <nav>
+        <app-layout></app-layout>
+    </nav>
+
+    <article>
+        <div class="card card-layout">
+            <div class="card-body card-bg">
+                <!-- <div *ngIf="print">
+                    <h2 class="card-titlev center">OP Reciept - Hospitals</h2>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Token</th>
+                                <th scope="col">{{tokenGenerated | tokenIncrement}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">{{name}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Address</th>
+                                <th scope="col">{{address}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">City</th>
+                                <th scope="col">{{city}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">State/Province</th>
+                                <th scope="col">{{state}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Postal Code</th>
+                                <th scope="col">{{pCode}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">DOB</th>
+                                <th scope="col">{{dob}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Gender</th>
+                                <th scope="col">{{gender}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Phone</th>
+                                <th scope="col">{{phone}}</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <hr/>
+                    <h2 class="card-titlev center">OP Reciept - Patient</h2>
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Token</th>
+                                <th scope="col">{{tokenGenerated | tokenIncrement}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">{{name}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Address</th>
+                                <th scope="col">{{address}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">City</th>
+                                <th scope="col">{{city}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">State/Province</th>
+                                <th scope="col">{{state}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Postal Code</th>
+                                <th scope="col">{{pCode}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">DOB</th>
+                                <th scope="col">{{dob}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Gender</th>
+                                <th scope="col">{{gender}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Phone</th>
+                                <th scope="col">{{phone}}</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="row" *ngIf="!buttonRemove">
+                        <div class="col center">
+                            <button type="button" style="width: 15rem;" class="btn btn-success"
+                                (click)="sendDataApi()">Print</button>
+                        </div>
+                    </div>
+                </div> -->
+                <div>
+                    <h2 class="card-title center">Patient Admission</h2>
+                    <form [formGroup]="patientAdmissionForm" autocomplete="off">
+                        <div class="container fluid">
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Name
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="text" formControlName="patientName" class="form-control"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    Admission ID
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="text" formControlName="admissionId" class="form-control"
+                                            aria-describedby="basic-addon1" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Admission Date
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="date" formControlName="admissionDate" class="form-control"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    Admission Time
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="time" formControlName="admissionTime" class="form-control"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Gender
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="text" formControlName="gender" class="form-control"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    Age
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="text" formControlName="age" class="form-control"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Address
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <textarea class="form-control" formControlName="address"
+                                            aria-label="With textarea"></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    Status
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="text" formControlName="status" class="form-control"
+                                            aria-describedby="basic-addon1" readonly>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Symptoms
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="text" formControlName="symptoms" class="form-control"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    Phone
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="text" formControlName="pNumber" class="form-control"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Marrital Status
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="text" formControlName="marritalStatus" class="form-control"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    Occupation
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="text" formControlName="occupation" class="form-control"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-2">
+                                    Assigned Doctor
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="text" formControlName="doctor" class="form-control"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    Bed number
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="input-group mb-3">
+                                        <input type="text" formControlName="bedNumber" class="form-control"
+                                            aria-describedby="basic-addon1">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col center">
+                                    <button type="button" [disabled]="!patientAdmissionForm.valid" style="width: 15rem;"
+                                        class="btn btn-success" (click)="postAdmissionData()">Submit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

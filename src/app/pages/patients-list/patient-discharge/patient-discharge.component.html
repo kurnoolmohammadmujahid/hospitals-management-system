@@ -1,0 +1,103 @@
+<header>
+    <h1 class="center">HOSPITALS MANAGEMENT SYSTEM</h1>
+</header>
+
+<section>
+    <nav>
+        <app-layout></app-layout>
+    </nav>
+
+    <article>
+        <div class="card card-layout">
+            <div class="card-body card-bg">
+                <h2 class="card-titlev center">Patient's Discharge Update</h2>
+                <form [formGroup]="patientStatusUpdateForm" autocomplete="off">
+                    <div class="container fluid">
+                        <div class="row margin-left-22">
+                            <div class="col-md-3">
+                                Admission ID
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="admissionId" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col center">
+                                <button type="button" [disabled]="!patientStatusUpdateForm.valid" style="width: 15rem;"
+                                    class="btn btn-success" (click)="getAdmissionData()">Get Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div *ngIf="display">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">Admission ID</th>
+                                <th scope="col">{{viewMoreDetailsObj.admissionId}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Name</th>
+                                <th scope="col">{{viewMoreDetailsObj.patientName}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Date & Time</th>
+                                <th scope="col">{{viewMoreDetailsObj.admissionDate}}{{viewMoreDetailsObj.admissionTime}}
+                                </th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Status</th>
+                                <th scope="col">{{viewMoreDetailsObj.status}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Gender</th>
+                                <th scope="col">{{viewMoreDetailsObj.gender}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Age</th>
+                                <th scope="col">{{viewMoreDetailsObj.age}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Address</th>
+                                <th scope="col">{{viewMoreDetailsObj.address}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Symptoms</th>
+                                <th scope="col">{{viewMoreDetailsObj.symptoms}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Phone Number</th>
+                                <th scope="col">{{viewMoreDetailsObj.pNumber}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Marrital Status</th>
+                                <th scope="col">{{viewMoreDetailsObj.marritalStatus}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Occupation</th>
+                                <th scope="col">{{viewMoreDetailsObj.occupation}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Doctor</th>
+                                <th scope="col">{{viewMoreDetailsObj.doctor}}</th>
+                            </tr>
+                            <tr>
+                                <th scope="col">Bed Number</th>
+                                <th scope="col">{{viewMoreDetailsObj.bedNumber}}</th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="row">
+                        <div class="col center">
+                            <button type="button" style="width: 15rem;" class="btn btn-success"
+                                (click)="patientStatusUpdateCall()">Mark Patient Discharge</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>

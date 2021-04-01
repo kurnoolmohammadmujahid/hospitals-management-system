@@ -1,0 +1,210 @@
+<header>
+    <h1 class="center">HOSPITALS MANAGEMENT SYSTEM</h1>
+</header>
+
+<section>
+    <nav>
+        <app-layout></app-layout>
+    </nav>
+
+    <article>
+        <div class="card card-layout">
+            <div class="card-body card-bg">
+                <h2 class="card-titlev center">Billing System</h2>
+                <form [formGroup]="getpatientDetailsForm" autocomplete="off">
+                    <div class="container fluid">
+                        <div class="row margin-left-22">
+                            <div class="col-md-2">
+                                Admission ID
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="admissionId" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="col-md-4 center">
+                                <div class="input-group mb-3">
+                                    <button type="button" [disabled]="!getpatientDetailsForm.valid"
+                                        style="width: 15rem;" class="btn btn-success" (click)="getAdmissionData()">Get
+                                        Details</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div class="row">
+                            <div class="col center">
+                                <button type="button" [disabled]="!getpatientDetailsForm.valid" style="width: 15rem;"
+                                    class="btn btn-success" (click)="getAdmissionData()">Get Details</button>
+                            </div>
+                        </div> -->
+                    </div>
+                </form>
+                <div class="margin-top-20" *ngIf="display">
+                    <div class="container fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Admission ID</th>
+                                            <th scope="col">{{viewMoreDetailsObj.admissionId}}</th>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">{{viewMoreDetailsObj.patientName}}</th>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Status</th>
+                                            <th scope="col">{{viewMoreDetailsObj.status}}</th>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Doctor</th>
+                                            <th scope="col">{{viewMoreDetailsObj.doctor}}</th>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">Bed Number</th>
+                                            <th scope="col">{{viewMoreDetailsObj.bedNumber}}</th>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">From Date</th>
+                                            <th scope="col">{{viewMoreDetailsObj.admissionDate}}
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th scope="col">No. of days till date</th>
+                                            <th scope="col">{{days}}
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <form [formGroup]="billingForm" autocomplete="off">
+                                    <table class="table table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th class="billing-table" scope="col">Doctors Charges Per Day</th>
+                                                <th class="billing-table" scope="col">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">₹</span>
+                                                        </div>
+                                                        <input type="number" formControlName="doctorsCharge"
+                                                            class="form-control width" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th class="billing-table" scope="col">Room Charges</th>
+                                                <th class="billing-table" scope="col">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">₹</span>
+                                                        </div>
+                                                        <input type="number" formControlName="roomCharge"
+                                                            class="form-control width" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th class="billing-table" scope="col">Hospital Charges</th>
+                                                <th class="billing-table" scope="col">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">₹</span>
+                                                        </div>
+                                                        <input type="number" formControlName="hospitalsCharge"
+                                                            class="form-control width" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th class="billing-table" scope="col">Medical treatment Charges</th>
+                                                <th class="billing-table" scope="col">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">₹</span>
+                                                        </div>
+                                                        <input type="number" formControlName="mdeicalCharge"
+                                                            class="form-control width" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th class="billing-table" scope="col">Services Treatment Charges</th>
+                                                <th class="billing-table" scope="col">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                            <span class="input-group-text" id="basic-addon1">₹</span>
+                                                        </div>
+                                                        <input type="number" formControlName="serviceCharge"
+                                                            class="form-control width" aria-describedby="basic-addon1">
+                                                    </div>
+                                                </th>
+                                            </tr>
+                                        </thead>
+                                    </table>
+                                    <div class="row">
+                                        <div class="col center">
+                                            <button type="button" [disabled]="!billingForm.valid" style="width: 15rem;"
+                                                class="btn btn-success" (click)="calculateTotal()">Get
+                                                Total</button>
+                                        </div>
+                                    </div>
+                                </form>
+                                <table class="table table-bordered">
+                                    <thead>
+                                        <tr>
+                                            <th class="billing-table" scope="col">Total Amount</th>
+                                            <th class="billing-table" scope="col">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">₹</span>
+                                                    </div>
+                                                    <input value="{{finalAmount}}" class="form-control width"
+                                                        aria-describedby="basic-addon1" readonly>
+                                                </div>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th class="billing-table" scope="col">Discount (%)</th>
+                                            <th class="billing-table" scope="col">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">₹</span>
+                                                    </div>
+                                                    <input type="number" [(ngModel)]="discount"
+                                                        (change)="eventHandler($event)" class="form-control width"
+                                                        aria-describedby="basic-addon1">
+                                                </div>
+                                            </th>
+                                        </tr>
+                                        <tr>
+                                            <th class="billing-table" scope="col">Paid Amount</th>
+                                            <th class="billing-table" scope="col">
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text" id="basic-addon1">₹</span>
+                                                    </div>
+                                                    <input type="number" [(ngModel)]="paidAmount"
+                                                        class="form-control width" aria-describedby="basic-addon1">
+                                                </div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                </table>
+                                <div class="row">
+                                    <div class="col center">
+                                        <button type="button" [disabled]="!billingForm.valid" style="width: 15rem;"
+                                            class="btn btn-success" (click)="paidStatus()">Get
+                                            Total</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
