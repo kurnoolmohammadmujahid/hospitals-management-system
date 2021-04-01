@@ -1,0 +1,80 @@
+<header>
+    <h1 class="center">HOSPITALS MANAGEMENT SYSTEM</h1>
+</header>
+
+<section>
+    <nav>
+        <app-layout></app-layout>
+    </nav>
+
+    <article>
+        <div class="card card-layout">
+            <div class="card-body card-bg">
+                <h2 class="card-titlev center">Change Doctors Status</h2>
+                <form [formGroup]="ChangeDoctorStatusForm" autocomplete="off">
+                    <div class="container fluid">
+                        <div class="row margin-left-22">
+                            <div class="col-md-3">
+                                Search By Doctor ID
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="doctorId" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="col-md-4 center">
+                                <div class="input-group mb-3">
+                                    <button type="button" [disabled]="!ChangeDoctorStatusForm.valid"
+                                        style="width: 15rem;" class="btn btn-success" (click)="getDoctorData()">Get
+                                        Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <div *ngIf="display">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Doctor ID:</th>
+                                <th>{{viewMoreDetailsObj.doctorId}}</th>
+                                <th>Name:</th>
+                                <th>{{viewMoreDetailsObj.name}}</th>
+                            </tr>
+                            <tr>
+                                <th>DOB:</th>
+                                <th>{{viewMoreDetailsObj.age}}</th>
+                                <th>Gender:</th>
+                                <th>{{viewMoreDetailsObj.gender}}</th>
+                            </tr>
+                            <tr>
+                                <th>Degree:</th>
+                                <th>{{viewMoreDetailsObj.degree}}</th>
+                                <th>Address:</th>
+                                <th>{{viewMoreDetailsObj.address}}</th>
+                            </tr>
+                            <tr>
+                                <th>Designation:</th>
+                                <th>{{viewMoreDetailsObj.designation}}</th>
+                                <th>Phone:</th>
+                                <th>{{viewMoreDetailsObj.phone}}</th>
+                            </tr>
+                            <tr>
+                                <th>Status:</th>
+                                <th>{{viewMoreDetailsObj.status}}</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                    </table>
+                    <div class="center">
+                        <button type="button" style="width: 15rem;" class="btn btn-success"
+                            (click)="postDoctorDetails()">Mark
+                            Doctor As InActive</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
