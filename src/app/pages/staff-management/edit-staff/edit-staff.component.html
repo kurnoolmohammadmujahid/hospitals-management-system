@@ -1,0 +1,128 @@
+<header>
+    <h1 class="center">HOSPITALS MANAGEMENT SYSTEM</h1>
+</header>
+
+<section>
+    <nav>
+        <app-layout></app-layout>
+    </nav>
+
+    <article>
+        <div class="card card-layout">
+            <div class="card-body card-bg">
+                <h2 class="card-titlev center">Edit Staff Details</h2>
+                <form [formGroup]="getStaffDetailsForm" autocomplete="off">
+                    <div class="container fluid">
+                        <div class="row margin-left-22">
+                            <div class="col-md-3">
+                                Search By Staff ID
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="staffId" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="col-md-4 center">
+                                <div class="input-group mb-3">
+                                    <button type="button" [disabled]="!getStaffDetailsForm.valid" style="width: 15rem;"
+                                        class="btn btn-success" (click)="getStaffData()">Get
+                                        Details</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+                <form *ngIf="display" [formGroup]="editStaffForm" autocomplete="off">
+                    <div class="container fluid">
+                        <div class="row">
+                            <div class="col-md-2">
+                                Staff ID
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="staffId" class="form-control"
+                                        aria-describedby="basic-addon1" readonly>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                Name
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="name" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                DOB
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="date" formControlName="age" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                Degree
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="degree" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                Designation
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="designation" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                Gender
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="gender" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                                Phone
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="phone" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                Address
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <textarea formControlName="address" class="form-control" rows="3"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col center">
+                                <button type="button" [disabled]="!editStaffForm.valid" style="width: 15rem;"
+                                    class="btn btn-success" (click)="postStaffDetails()">Edit Staff Details</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </article>
+</section>
