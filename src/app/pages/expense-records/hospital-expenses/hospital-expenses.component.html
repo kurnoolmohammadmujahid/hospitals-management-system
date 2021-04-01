@@ -1,0 +1,70 @@
+<header>
+    <h1 class="center">HOSPITALS MANAGEMENT SYSTEM</h1>
+</header>
+
+<section>
+    <nav>
+        <app-layout></app-layout>
+    </nav>
+
+    <article>
+        <div class="card card-layout">
+            <div class="card-body card-bg">
+                <h2 class="card-titlev center">Hospital Expenses</h2>
+                <form [formGroup]="hospitalExpensesForm" autocomplete="off">
+                    <div class="container fluid">
+                        <div class="row margin-left-22">
+                            <div class="col-md-3">
+                                Expenses Category
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="expensesCategory" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row margin-left-22">
+                            <div class="col-md-3">
+                                Ownership Taken By
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="ownerShipTakenBy" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row margin-left-22">
+                            <div class="col-md-3">
+                                Amount
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <input type="text" formControlName="amount" class="form-control"
+                                        aria-describedby="basic-addon1">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row margin-left-22">
+                            <div class="col-md-3">
+                                Comments
+                            </div>
+                            <div class="col-md-4">
+                                <div class="input-group mb-3">
+                                    <textarea formControlName="comments" class="form-control" rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col center">
+                                <button type="button" [disabled]="!hospitalExpensesForm.valid" style="width: 15rem;"
+                                    class="btn btn-success" (click)="updateExpensesData()">Add Expenses</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </article>
+</section>

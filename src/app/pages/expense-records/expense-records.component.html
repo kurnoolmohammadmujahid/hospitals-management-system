@@ -1,0 +1,82 @@
+<header>
+    <h1 class="center">HOSPITALS MANAGEMENT SYSTEM</h1>
+</header>
+
+<section>
+    <nav>
+        <app-layout></app-layout>
+    </nav>
+    <article>
+        <div class="card card-layout">
+            <div class="card-body card-bg">
+                <h2 class="card-titlev center">Hospital Expenses Database</h2>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Category</th>
+                                <th scope="col">OwnerShip Taken</th>
+                                <th scope="col">Date & Time</th>
+                                <th scope="col">Amount</th>
+                                <th scope="col">Status</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let expense of expensesLst"
+                                [ngClass]="{'discharge-status-color': expense.status == 'Settled'}">
+                                <th scope="row">{{expense.expensesCategory}}</th>
+                                <td>{{expense.ownerShipTakenBy}}</td>
+                                <td>{{expense.dateTime}}</td>
+                                <td>{{expense.amount}}</td>
+                                <td>{{expense.status}}</td>
+                                <td> <button *ngIf="expense.status == 'Pending'" (click)="showDialog(expense)" pButton
+                                        pRipple type="button" icon="pi pi-search"
+                                        class="p-button-rounded p-button-success"></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </article>
+</section>
+
+
+
+<p-dialog header="Expense's Data Detailed View" [(visible)]="display" [style]="{width: '70vw'}">
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Category</th>
+                <th scope="col">{{viewMoreDetailsObj.expensesCategory}}</th>
+            </tr>
+            <tr>
+                <th scope="col">OwnerShip Taken By</th>
+                <th scope="col">{{viewMoreDetailsObj.ownerShipTakenBy}}</th>
+            </tr>
+            <tr>
+                <th scope="col">Date & Time</th>
+                <th scope="col">{{viewMoreDetailsObj.dateTime}}</th>
+            </tr>
+            <tr>
+                <th scope="col">Amount</th>
+                <th scope="col">{{viewMoreDetailsObj.amount}}</th>
+            </tr>
+            <tr>
+                <th scope="col">Status</th>
+                <th scope="col">{{viewMoreDetailsObj.status}}</th>
+            </tr>
+            <tr>
+                <th scope="col">Comments</th>
+                <th scope="col">{{viewMoreDetailsObj.comments}}</th>
+            </tr>
+            <tr>
+                <th scope="col">
+                    <a class="btn btn-primary" (click)="settled()">Mark As Settled</a>
+                </th>
+            </tr>
+        </thead>
+    </table>
+</p-dialog>
